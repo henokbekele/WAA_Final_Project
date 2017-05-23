@@ -21,13 +21,37 @@ public class PersonRest {
 	@Autowired
 	private PersonService personService;
 	
-	@RequestMapping(value="/person/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/person/{id}", method = RequestMethod.GET, produces = "application/json")
 	public Person getPersonById(@PathVariable long id)
 	{
 		System.out.println("the first person id: "+id);
 		return personService.findById(id);
 	}
+	@RequestMapping(value="/persons", method = RequestMethod.GET)
+	public List<Person> getAllPers()
+	{
+		System.out.println("the first person id: ");
+		return personService.getAll();
+	}
 
+
+	
+	@RequestMapping(value="/ss", method = RequestMethod.GET ) //produces = "application/json"
+	public List<Person> getAllPerss()
+	{
+		System.out.println("the first person id: ");
+		return personService.getAll();
+	}
+
+/*	public String getString()
+	{
+	
+		System.out.println("the first person id: ");
+		return "mydata";
+	}
+*/
+	
+	
 	@RequestMapping(value="/person", method = RequestMethod.GET)
 	public List<Person> getPersonByEmail(@PathParam(value = "email") String email)
 	{

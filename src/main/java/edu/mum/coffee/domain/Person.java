@@ -8,8 +8,11 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Person {
 	@Id
 	@GeneratedValue
