@@ -23,7 +23,7 @@
 	
 	<input type="hidden" name= "${_csrf.parameterName}" value="${_csrf.token}"/>
 	
-	<input type="submit"/>
+	<input type="submit" value="add order"/>
 	</form>
 	<h3>list of order</h3>
 	<table>
@@ -37,6 +37,11 @@
 	</c:forEach>
 	</table>
 	
+	<form action="/addorder" method="post">
+		<input type="hidden" name= "${_csrf.parameterName}" value="${_csrf.token}"/>
+	
+	<input type="submit" value="order"/>
+	</form>
 	
 	
 	

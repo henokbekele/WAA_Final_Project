@@ -35,6 +35,12 @@ public class Order {
 		return id;
 	}
 
+	
+	public void setOrderLines(List<Orderline> orderLines) {
+		this.orderLines = orderLines;
+	}
+
+
 	public List<Orderline> getOrderLines() {
 		return Collections.unmodifiableList(orderLines);
 	}
