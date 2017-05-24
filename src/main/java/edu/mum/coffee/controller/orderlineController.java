@@ -37,10 +37,50 @@ public class orderlineController {
 	
 	@Autowired
 	private PersonService persontService;
+	
+	
+	@GetMapping(value="/addcustomer")
+	public String getcustomer()
+	{
+		return "addcustomer";
+	}
+
+	
+	
+	@PostMapping(value="/addcustomer")
+	public String addcustomer( Person person, Address address, ModelMap m, SessionStatus status)
+	{
+
+		person.setAddress(address);
+		
+		System.out.println(person.getEmail()+" emaillll");
+		if (!m.containsAttribute("customer")) {
+			System.out.println(person.getEmail()+" not there emaillll");
+
+			m.addAttribute("customer", person);
+
+			} 
+
+		m.addAttribute("customer", person);
+		
+		System.out.println(person.getEmail()+" not there emaillll");
+		//m.addAttribute(attributeName, attributeValue)
+			//Person customer = (Person)m.get("customer");
+			//customer=person;
+			//orderlines.add(orderline);
+		
+		//persontService.savePerson(person);
+
+		return "redirect:/orderline";
+		
+		
+	}
 
 	@RequestMapping(value="/orderline", method=RequestMethod.POST)
 	public String add(@RequestParam("quantity") int quantity, @RequestParam("product") int product, @RequestParam("order") int order, 
 			@RequestParam("id") String id,   ModelMap m) {
+
+		
 		Orderline orderline = new Orderline();
 		orderline.setQuantity(quantity);
 		orderline.setProduct(productService.getProduct(product));
@@ -48,18 +88,22 @@ public class orderlineController {
 
 		
 	if (!m.containsAttribute("orderlines")) {
-	System.out.println("No orderline Yet");
+
 	m.addAttribute("orderlines", new ArrayList<Orderline>());
-	//m.addAttribute("currentId", 0);
-	} else {
-	System.out.println("orderline Exists, currentId:");//+m.get("currentId"));
-	}
+
+	} 
+
 	List<Orderline> orderlines = (List<Orderline>)m.get("orderlines");
 	orderlines.add(orderline);
-	//Integer currentId = (Integer) m.get("currentId");
-	//m.put("currentId", currentId + 1);
+
 	return "redirect:/orderline";
 	}
+	
+
+	
+	
+
+	
 	
 	@RequestMapping(value="/orderline", method=RequestMethod.GET)
 	public String getorder(Orderline orderline, ModelMap m) {
@@ -68,6 +112,7 @@ public class orderlineController {
 			}
 		}
 	
+	
 	@PostMapping(value="/addorder")
 	public String addorder( ModelMap m, SessionStatus status)
 	{
@@ -75,13 +120,8 @@ public class orderlineController {
 		order.setOrderDate(new java.util.Date());
 		order.setOrderLines((List<Orderline>) m.get("orderlines"));
 		
-	/*	Person p = new Person();
-		p.setFirstName("first order");
-		p=persontService.savePerson(p);
-		
-		order.setPerson(p);
-	*/	
-		order.setPerson(persontService.findById((long) 1));
+		Person personOrder=persontService.savePerson((Person) m.get("customer"));
+		order.setPerson(personOrder);
 		orderService.save(order);
 		status.setComplete();
 		
@@ -89,39 +129,6 @@ public class orderlineController {
 		
 		
 	}
-	
-	@GetMapping(value="/addcustomer")
-	public String getcustomer( Person pp, ModelMap m, SessionStatus status)
-	{
-		return "addcustomer";
-	}
-	@PostMapping(value="/addcustomer")
-	public String addcustomer( Person pp, Address ad, ModelMap m, SessionStatus status)
-	{
-		/*Order order= new Order();
-		order.setOrderDate(new java.util.Date());
-		order.setOrderLines((List<Orderline>) m.get("orderlines"));
-	*/
-		pp.setAddress(ad);
-		System.out.println(pp.getEmail()+"email");
-		System.out.println(pp.getFirstName()+"name");
-		System.out.println(pp.getAddress().getCity()+"city");
-		persontService.savePerson(pp);
-	/*	Person p = new Person();
-		p.setFirstName("first order");
-		p=persontService.savePerson(p);
-		
-		order.setPerson(p);
-		
-		order.setPerson(persontService.findById((long) 1));
-		orderService.save(order);
-		status.setComplete();
-	*/	
-		return "redirect:/orderline";
-		
-		
-	}
-	
 	
 	}
 

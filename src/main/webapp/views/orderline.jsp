@@ -26,11 +26,14 @@
 	<input type="submit" value="add order"/>
 	</form>
 	<h3>list of order</h3>
+	
+		<h5>customer name : </h5>${customer.firstName}</td>
 	<table>
 	<c:forEach var="orderline" items="${orderlines}">
 	<tr>
 	
 		<td>${orderline.quantity}</td>
+	
 		<td>${orderline.product.productName}</td>
 		<td>${orderline.order.id}</td>
 		</tr>
