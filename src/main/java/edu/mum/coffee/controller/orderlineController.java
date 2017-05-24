@@ -87,8 +87,11 @@ public class orderlineController {
 	}
 
 	@RequestMapping(value="/orderline", method=RequestMethod.POST)
-	public String add(@RequestParam("productoption") String  productoption, @RequestParam("quantity") int quantity, @RequestParam("product") int product, @RequestParam("order") int order, 
-			@RequestParam("id") String id,   ModelMap m) {
+/*	public String add(@RequestParam("productoption") String  productoption, @RequestParam("quantity") int quantity, @RequestParam("product") int product, @RequestParam("order") int order, 
+		@RequestParam("id") String id,   ModelMap m) {
+*/
+	public String add(@RequestParam("productoption") String  productoption, @RequestParam("quantity") int quantity,  
+				   ModelMap m) {
 
 		
 	System.out.println(productoption+"iddddddddd");
@@ -96,7 +99,7 @@ public class orderlineController {
 		Orderline orderline = new Orderline();
 		orderline.setQuantity(quantity);
 		orderline.setProduct(productService.getProduct(Integer.parseInt(productoption)));
-		orderline.setOrder(orderService.findById(order));
+		//orderline.setOrder(orderService.findById(order));
 
 		
 	if (!m.containsAttribute("orderlines")) {

@@ -16,24 +16,16 @@
 
 
 		
-			<tr>
-			<td>id:</td>
-			<td><input type="text" name="id"  /> </td></tr>
-			<tr>
+		
 
-	<tr>
 			<td>quantity:</td>
 			<td><input type="text" name="quantity"  /> </td></tr>
 			<tr>
 
-			<td>product:</td>
-		<td><input type="text" name="product" /> </td></tr>
-		<tr>
-			<td>order:</td>
-		<td><input type="text" name="order" /> </td></tr>
-		<tr>
+	
+
+
 		<tr><td>
-		<td>select product:</td>
 			<select name="productoption" >
     <c:forEach var="item" items="${products}">
         <option value="${item.id}" >${item.productName}</option>
