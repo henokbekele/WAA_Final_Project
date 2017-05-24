@@ -9,13 +9,18 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 
-
+import edu.mum.coffee.domain.Orderline;
 import edu.mum.coffee.domain.Person;
 
 @Controller
+//@SessionAttributes(value={"orderlines", "userId", "product"})
 public class HomeController {
 	
 	//@Autowired
@@ -30,6 +35,16 @@ public class HomeController {
 	public String securePage() {
 		return "secure";
 	}
+	
+	@GetMapping({"/ppp"})
+	public String securePagep() {
+		return "selectPizza";
+	}
+
+	
+
+
+	
 	
 //	@GetMapping({"/p"})
 //	public String personsPage(Model model) {
