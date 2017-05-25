@@ -22,11 +22,9 @@ import edu.mum.coffee.domain.Person;
 import edu.mum.coffee.domain.Product;
 
 @Controller
-//@SessionAttributes(value={"orderlines", "userId", "product"})
 public class HomeController {
 	
-	//@Autowired
-	//private PesronClient persons;
+
 	
 	@GetMapping({"/", "/index", "/home"})
 	public String homePage(Model model) {
@@ -45,28 +43,7 @@ public class HomeController {
 		return "secure";
 	}
 	
-	@GetMapping({"/ppp"})
-	public String securePagep() {
-		return "selectPizza";
-	}
-
 	
-
-
-	
-	
-//	@GetMapping({"/p"})
-//	public String personsPage(Model model) {
-//		
-//		  RestTemplate restTemplate = new RestTemplate();
-//		  System.out.println("ssssssssssssssssss");    
-//		  
-//		  
-//		 List<Person> persons =  restTemplate.getForObject("http://localhost:8080/ss", ArrayList.class);
-//System.out.println(persons +"yyyyyyyyyyyyyyyyyyyyyyyy");
-//		model.addAttribute("persons", persons);
-//		return "persons";
-//	}
 	
 }
 

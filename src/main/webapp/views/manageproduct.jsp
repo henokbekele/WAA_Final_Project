@@ -15,6 +15,14 @@
 
 </head>
 <body>
+
+
+
+<div style="display: inline-block; float: right;">
+           <a class="navbar-brand" href="/secure">Home</a>
+     <a style="color: red" class="navbar-brand" href="logout">Logout</a>
+</div>
+
 	<h1>Manage Products</h1>
 
 	<form action="/manageproduct" method="post">

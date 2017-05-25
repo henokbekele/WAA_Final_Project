@@ -14,7 +14,12 @@
 
 </head>
 <body>
-	<h1>Add customer</h1>
+<div style="display: inline-block; float: right;">
+           <a class="navbar-brand" href="/secure">Home</a>
+     <a style="color: red" class="navbar-brand" href="logout">Logout</a>
+</div>
+
+	<h1>Add Person</h1>
 	
 	<form action="/addperson" method="post">
 	<table class="table table-striped">

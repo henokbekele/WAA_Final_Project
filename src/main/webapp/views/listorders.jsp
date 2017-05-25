@@ -13,7 +13,13 @@
 <title>products</title>
 </head>
 <body>
-<h2>List of Orders</h2>
+
+<div style="display: inline-block; float: right;">
+           <a class="navbar-brand" href="/secure">Home</a>
+     <a style="color: red" class="navbar-brand" href="logout">Logout</a>
+</div>
+
+<h1>List of Orders</h1>
 	<table class="table table-striped">
 		<tr>
 	<th>Order Date</th>

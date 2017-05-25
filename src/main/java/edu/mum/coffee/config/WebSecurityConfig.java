@@ -15,8 +15,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/home", "/index","person/1" ,"/ss", "/product").permitAll()
- 
+                .antMatchers("/", "/home", "/index", "/product").permitAll()
                 .antMatchers(  "/secure").hasAnyRole("USER", "ADMIN")
                 .antMatchers(  "/addcustomer", "/orderline", "/addorder").hasRole("USER")
                 .antMatchers(  "/manageproduct","/addperson","/listorder").hasRole("ADMIN")
@@ -35,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("super").password("pw").roles("ADMIN");
-		auth.inMemoryAuthentication().withUser("user").password("pw").roles("USER");
+		auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
 	}
 }

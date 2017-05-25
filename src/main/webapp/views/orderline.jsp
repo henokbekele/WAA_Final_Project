@@ -13,6 +13,13 @@
 	crossorigin="anonymous">
 </head>
 <body>
+
+<div style="display: inline-block; float: right;">
+           <a class="navbar-brand" href="/addcustomer">Back</a>
+           <a class="navbar-brand" href="/secure">Home</a>
+     <a style="color: red" class="navbar-brand" href="logout">Logout</a>
+</div>
+
 	<h1>orderline</h1>
 
 	<form action="/orderline" method="post">

@@ -6,14 +6,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>products</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
 </head>
 <body>
 
+<div style="display: inline-block; float: right;">
+           <a class="navbar-brand" href="/addcustomer">order for other person</a>
+           <a class="navbar-brand" href="/secure">Home</a>
+     <a style="color: red" class="navbar-brand" href="logout">Logout</a>
+</div>
+
+<h4>
 Order of ${order.person.firstName} with total cost of ${total} is saved successfully
+</h4>
 
 	<h1>ordered Saved</h1>
-	<a href="addcustomer"> goback</a>
+
 	
+
+
 	
 </body>
 </html>
