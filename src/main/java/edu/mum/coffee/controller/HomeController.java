@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 
 import edu.mum.coffee.domain.Orderline;
 import edu.mum.coffee.domain.Person;
+import edu.mum.coffee.domain.Product;
 
 @Controller
 //@SessionAttributes(value={"orderlines", "userId", "product"})
@@ -28,14 +29,19 @@ public class HomeController {
 	//private PesronClient persons;
 	
 	@GetMapping({"/", "/index", "/home"})
-	public String homePage() {
+	public String homePage(Model model) {
+		
+		RestTemplate restTemplate = new RestTemplate();
+		List<Product> products = restTemplate.getForObject("http://localhost:8888/product", ArrayList.class);
+		model.addAttribute("products", products);
+				
 		return "home";
 	}
 
 	@GetMapping({"/secure"})
 	public String securePage(Principal principal) {
 		
-		System.out.println("pppppp"+principal.getName());
+		System.out.println("pppppp"+principal.getName() + principal);
 		return "secure";
 	}
 	

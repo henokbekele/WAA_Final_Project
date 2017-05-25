@@ -53,7 +53,6 @@ public class orderlineController {
 	public void addAttributes(Model model) {
 	    model.addAttribute("products", productService.getAllProduct());
 
-	   // model.addAttribute("products", productService.getAllProduct());
 }
 	
 	
@@ -74,12 +73,6 @@ public class orderlineController {
 		m.addAttribute("customer", person);
 		
 		System.out.println(person.getEmail()+" not there emaillll");
-		//m.addAttribute(attributeName, attributeValue)
-			//Person customer = (Person)m.get("customer");
-			//customer=person;
-			//orderlines.add(orderline);
-		
-		//persontService.savePerson(person);
 
 		return "redirect:/orderline";
 		
@@ -87,9 +80,7 @@ public class orderlineController {
 	}
 
 	@RequestMapping(value="/orderline", method=RequestMethod.POST)
-/*	public String add(@RequestParam("productoption") String  productoption, @RequestParam("quantity") int quantity, @RequestParam("product") int product, @RequestParam("order") int order, 
-		@RequestParam("id") String id,   ModelMap m) {
-*/
+
 	public String add(@RequestParam("productoption") String  productoption, @RequestParam("quantity") int quantity,  
 				   ModelMap m) {
 
@@ -99,9 +90,7 @@ public class orderlineController {
 		Orderline orderline = new Orderline();
 		orderline.setQuantity(quantity);
 		orderline.setProduct(productService.getProduct(Integer.parseInt(productoption)));
-		//orderline.setOrder(orderService.findById(order));
 
-		
 	if (!m.containsAttribute("orderlines")) {
 
 	m.addAttribute("orderlines", new ArrayList<Orderline>());
@@ -133,8 +122,13 @@ public class orderlineController {
 	{
 		Order order= new Order();
 		order.setOrderDate(new java.util.Date());
-		order.setOrderLines((List<Orderline>) m.get("orderlines"));
-		
+		List<Orderline> listoforderline=(List<Orderline>) m.get("orderlines");
+		//order.setOrderLines((List<Orderline>) m.get("orderlines"));
+		for(Orderline ol:listoforderline)
+		{
+			ol.setOrder(order);
+		}
+		order.setOrderLines(listoforderline);
 		Person personOrder=persontService.savePerson((Person) m.get("customer"));
 		order.setPerson(personOrder);
 		orderService.save(order);

@@ -52,14 +52,14 @@
 
 
 	customer name : ${customer.firstName}
-	</td>
+	 
 	<table class="table table-striped">
-	<th>
-	<td>Quantity</td>
-	<td>Product Name</td>
-	<td>Price per unit</td>
+	<tr>
+	<th>Quantity</th>
+	<th>Product Name</th>
+	<th>Price per unit</th>
 	
-	</th>
+	</tr>
 		<c:forEach var="orderline" items="${orderlines}">
 			<tr>
 

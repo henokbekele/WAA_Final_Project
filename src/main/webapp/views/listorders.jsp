@@ -5,21 +5,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
 
 <title>products</title>
 </head>
 <body>
-	<table>
+<h2>List of Orders</h2>
+	<table class="table table-striped">
+		<tr>
+	<th>Order Date</th>
+	<th>First Name</th>
+	<th>Total order Amount</th>
+	
+	
+	</tr>
 	<c:forEach var="order" items="${orders}">
+
 	<tr>
 	
 		<td>${order.orderDate}</td>
 	
 		<td>${order.person.firstName}</td>
 	
-	
-			<td><a href="/updatproduct/${product.id}"> delete </a></td>
-		<!--  <td><a href="/updateproduct/${product.id}"> delete </a></td>-->
+		<td>${order.getTotalAmount()}</td>	
 		</tr>
 	</c:forEach>
 	</table>
