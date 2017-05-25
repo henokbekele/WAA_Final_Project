@@ -49,8 +49,8 @@
 		<td>${product.description}</td>
 		<td>${product.price}</td>
 	   <td>${product.productType}</td>
-			<td><a href="/updatproduct/${product.id}"> edit </a></td>
-		<td><a href="/updateproduct/${product.id}"> delete </a></td>
+			<td><a href="/updatproduct/${product.id}"> delete </a></td>
+		<!--  <td><a href="/updateproduct/${product.id}"> delete </a></td>-->
 		</tr>
 	</c:forEach>
 	</table>

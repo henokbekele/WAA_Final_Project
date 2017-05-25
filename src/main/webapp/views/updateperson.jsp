@@ -46,7 +46,7 @@
 	
 	<input type="hidden" name= "${_csrf.parameterName}" value="${_csrf.token}"/>
 	
-	<input type="submit" value="add customer"/>
+	<input type="submit" value="update person"/>
 	</form>
 	</body>
 	</html>

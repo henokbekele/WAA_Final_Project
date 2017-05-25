@@ -145,6 +145,18 @@ public class orderlineController {
 		
 	}
 	
+	
+	@GetMapping(value="/listorder")
+	public String listorder( Model model)
+	{
+		model.addAttribute("orders", orderService.findAll());
+				
+		return "listorders";
+		
+		
+	}
+	
+	
 	}
 
 
