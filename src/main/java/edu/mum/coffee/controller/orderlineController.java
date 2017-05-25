@@ -129,7 +129,7 @@ public class orderlineController {
 	
 	
 	@PostMapping(value="/addorder")
-	public String addorder( ModelMap m, SessionStatus status)
+	public String addorder( ModelMap m, SessionStatus status, Model model)
 	{
 		Order order= new Order();
 		order.setOrderDate(new java.util.Date());
@@ -138,6 +138,8 @@ public class orderlineController {
 		Person personOrder=persontService.savePerson((Person) m.get("customer"));
 		order.setPerson(personOrder);
 		orderService.save(order);
+		model.addAttribute("order", order);
+		model.addAttribute("total", order.getTotalAmount());
 		status.setComplete();
 		
 		return "ordersaved";

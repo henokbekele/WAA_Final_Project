@@ -6,40 +6,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>products</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
 </head>
 <body>
 	<h1>Add customer</h1>
 	
 	<form action="/addcustomer" method="post">
-	<table>
+	<table class="table table-striped">
 		<tr>
-			<td>firstName:</td>
+			<td>FirstName:</td>
 			<td><input type="text" name="firstName"  /> </td></tr>
 			<tr>
-			<td>lastName:</td>
+			<td>LastName:</td>
 		<td><input type="text" name="lastName" /> </td></tr>
 		<tr>
-			<td>email:</td>
+			<td>Email:</td>
 		<td><input type="text" name="email" /> </td></tr>
 		<tr>
-			<td>phone:</td>
+			<td>Phone:</td>
 		<td><input type="text" name="phone" /> </td></tr>
 	
 			<tr>
-			<td>city:</td>
+			<td>City:</td>
 		<td><input type="text" name="city" /> </td></tr>
 	
 			<tr>
-			<td>state:</td>
+			<td>State:</td>
 		<td><input type="text" name="state" /> </td></tr>
 	
 			<tr>
-			<td>country:</td>
+			<td>Country:</td>
 		<td><input type="text" name="country" /> </td></tr>
 	
 
 			<tr>
-			<td>zipcode:</td>
+			<td>Zipcode:</td>
 		<td><input type="text" name="zipcode" /> </td></tr>
 				
 	</table>

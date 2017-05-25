@@ -1,5 +1,6 @@
 package edu.mum.coffee.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,7 +33,9 @@ public class HomeController {
 	}
 
 	@GetMapping({"/secure"})
-	public String securePage() {
+	public String securePage(Principal principal) {
+		
+		System.out.println("pppppp"+principal.getName());
 		return "secure";
 	}
 	

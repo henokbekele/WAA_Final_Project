@@ -10,7 +10,8 @@
 <body>
 	<h1>Add customer</h1>
 	
-	<form action="/addperson" method="post">
+	<form action="/deleteperson" method="post">
+	<input type="hidden" name="id" value="${person.id}"  />
 	<table>
 		<tr>
 			<td>firstName:</td>
@@ -46,7 +47,7 @@
 	
 	<input type="hidden" name= "${_csrf.parameterName}" value="${_csrf.token}"/>
 	
-	<input type="submit" value="update person"/>
+	<input type="submit" value="delete person"/>
 	</form>
 	</body>
 	</html>

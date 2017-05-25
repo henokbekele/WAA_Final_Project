@@ -26,6 +26,16 @@ public class PersonController {
 	}
 
 	
+
+	@PostMapping(value="/deleteperson")
+	public String getDelete( Person person, Address address, Model model)
+	{
+		persontService.removePerson(person);
+		model.addAttribute("persons", persontService.getAll());
+		return "addperson";
+	}
+
+	
 	@GetMapping(value="/updateperson/{id}")
 	public String updateperson(@PathVariable("id") long id, Model model)
 	{

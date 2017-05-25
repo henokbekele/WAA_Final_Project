@@ -36,7 +36,7 @@
 	<input type="submit" value="delete product"/>
 	</form>
 	
-	<form action="/addproduct" method="get">
+	<form action="/manageproduct" method="get">
 		<input type="hidden" name= "${_csrf.parameterName}" value="${_csrf.token}"/>
 	
 	<input type="submit" value="cancle"/>

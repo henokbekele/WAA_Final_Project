@@ -8,6 +8,12 @@
 <title>products</title>
 </head>
 <body>
+
+Order of ${order.person.firstName} with total cost of ${total} is saved successfully
+
 	<h1>ordered Saved</h1>
+	<a href="addcustomer"> goback</a>
+	
+	
 </body>
 </html>

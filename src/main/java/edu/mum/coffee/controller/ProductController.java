@@ -22,7 +22,7 @@ public class ProductController {
 	private ProductService productService;
 	
 	
-	@GetMapping(value="/addproduct")
+	@GetMapping(value="/manageproduct")
 	public String getproduct(Model model)
 	{
 		model.addAttribute("allproducts", productService.getAllProduct());
@@ -30,7 +30,7 @@ public class ProductController {
 	}
 
 	
-	@PostMapping(value="/addproduct")
+	@PostMapping(value="/manageproduct")
 	public String addproduct( Product product,  Model model)
 	{
 
@@ -50,7 +50,7 @@ public class ProductController {
 		return "updateproduct";
 	}
 
-
+/*
 	@PostMapping(value="/updatproduct")
 	public String updateproduct( Product product, Model model)
 	{
@@ -65,18 +65,18 @@ public class ProductController {
 		
 		model.addAttribute("allproducts", productService.getAllProduct());
 		
-		return "manageproduct";
+		return "redirect:/manageproduct";
 		
 		
 	}
-	
+	*/
 	@PostMapping(value="/deleteproduct")
 	public String deleteproduct( Product product, Model model)
 	{
 		System.out.println("before delete");
 	
-		Product productold=productService.getProduct(product.getId());
-		productService.delete(productold); 
+		//Product productold=productService.getProduct(product.getId());
+		productService.delete(product); 
 		System.out.println("after delete");
 		
 		//productService.save(product);
